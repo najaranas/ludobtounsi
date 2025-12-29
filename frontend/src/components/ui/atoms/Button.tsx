@@ -1,103 +1,28 @@
-import {
-  ActivityIndicator,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from "react-native";
-import { colors, radius, spacing } from "../../../constants/theme";
-import { Text } from "./Text";
-
-interface ButtonProps extends TouchableOpacityProps {
-  title: string;
-  variant?: "primary" | "secondary" | "outline";
-  size?: "sm" | "md" | "lg";
-  loading?: boolean;
+import useButton from "@/hooks/button/useButton";
+import React from "react";
+import { Pressable, PressableProps } from "react-native";
+import { createAnimatedComponent } from "react-native-reanimated";
+interface ButtonProps extends PressableProps {
+  children: React.ReactNode;
+  scale?: number;
 }
 
-/**
- * Button - Pressable button with variants
- * Usage: <Button title="Play" variant="primary" onPress={handlePress} />
- */
-export function Button({
-  title,
-  variant = "primary",
-  size = "md",
-  loading = false,
-  disabled,
+const AnimatedPressable = createAnimatedComponent(Pressable);
+
+export const Button = ({
+  children,
+  scale = 0.9,
   style,
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
+  const { animatedStyle, handlePressIn, handlePressOut } = useButton(scale);
   return (
-    <TouchableOpacity
-      style={[
-        styles.base,
-        styles[variant],
-        styles[size],
-        disabled && styles.disabled,
-        style,
-      ]}
-      disabled={disabled || loading}
-      {...props}>
-      {loading ? (
-        <ActivityIndicator color={colors.text.primary} />
-      ) : (
-        <Text style={[styles.text, styles[`${variant}Text`]]}>{title}</Text>
-      )}
-    </TouchableOpacity>
+    <AnimatedPressable
+      {...props}
+      style={[style, animatedStyle]}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}>
+      {children}
+    </AnimatedPressable>
   );
-}
-
-const styles = StyleSheet.create({
-  base: {
-    borderRadius: radius.lg,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  // Variants
-  primary: {
-    backgroundColor: colors.primary.red,
-  },
-  secondary: {
-    backgroundColor: colors.background.light,
-  },
-  outline: {
-    backgroundColor: "transparent",
-    borderWidth: 2,
-    borderColor: colors.primary.red,
-  },
-
-  // Sizes
-  sm: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-  },
-  md: {
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
-  },
-  lg: {
-    paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.xl,
-  },
-
-  // States
-  disabled: {
-    opacity: 0.5,
-  },
-
-  // Text styles
-  text: {
-    color: colors.text.primary,
-    fontWeight: "600",
-  },
-  primaryText: {
-    color: colors.text.primary,
-  },
-  secondaryText: {
-    color: colors.text.primary,
-  },
-  outlineText: {
-    color: colors.primary.red,
-  },
-});
+};

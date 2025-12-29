@@ -1,1 +1,2 @@
-export { ScreenTemplate } from "./ScreenTemplate";
+export { ScreenContainer } from "./ScreenContainer";
+export type { ScreenContainerProps } from "./ScreenContainer";

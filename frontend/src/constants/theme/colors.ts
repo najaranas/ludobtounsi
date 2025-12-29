@@ -8,9 +8,9 @@ export const colors = {
 
   // Background colors
   background: {
-    dark: "#1A1A2E",
+    main: "#1A1A2E", // Ludo dark background
     medium: "#16213E",
-    light: "#0F3460",
+    accent: "#0F3460",
   },
 
   // Player colors

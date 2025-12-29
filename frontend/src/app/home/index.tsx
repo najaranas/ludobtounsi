@@ -1,27 +1,47 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import { ScreenContainer } from "@/components/ui/templates/ScreenContainer";
+import { SafeContent } from "@/components/ui/atoms/SafeContent";
+import {
+  HomeAssets,
+  HomeLogo,
+  QuickActionsToolbar,
+  GameModeSelection,
+  useHomeNavigation,
+  GAME_MODE_CONFIGS,
+  QUICK_ACTION_CONFIGS,
+} from "@/features/home";
 
-/**
- * HomeScreen - Main menu of the app
- * Navigation hub: Play, Settings, About
- */
 export default function HomeScreen() {
+  const { navigateToGameMode, handleQuickAction } = useHomeNavigation();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
-      {/* TODO: Add navigation buttons */}
-    </View>
+    <ScreenContainer backgroundSource={HomeAssets.backgrounds.main}>
+      <SafeContent style={styles.content}>
+        <QuickActionsToolbar
+          actions={QUICK_ACTION_CONFIGS}
+          onActionPress={handleQuickAction}
+        />
+        <View style={styles.centerSection}>
+          <HomeLogo />
+        </View>
+        <View style={[styles.centerSection, { flex: 1 }]}>
+          <GameModeSelection
+            modes={GAME_MODE_CONFIGS}
+            onModeSelect={navigateToGameMode}
+          />
+        </View>
+      </SafeContent>
+    </ScreenContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const styles = StyleSheet.create((theme) => ({
+  content: {
+    padding: theme.spacing.md,
+  },
+  centerSection: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#1A1A2E",
   },
-  title: {
-    fontSize: 24,
-    color: "#FFFFFF",
-  },
-});
+}));

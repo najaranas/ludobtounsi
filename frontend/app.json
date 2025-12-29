@@ -4,7 +4,7 @@
     "slug": "ludo-btounsi",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/icons/icon.png",
+    "icon": "./src/assets/images/icons/ludo-btounsi-logo.png",
     "scheme": "ludobtounsi",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,8 +13,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#1A1A2E",
-        "foregroundImage": "./src/assets/images/icons/adaptive-icon.png"
+        "foregroundImage": "./src/assets/images/icons/android-adaptive-icon.png",
+        "backgroundImage": "./src/assets/images/backgrounds/logo-background.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -34,7 +34,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./src/assets/images/logos/splash.png",
+          "image": "./src/assets/images/icons/android-adaptive-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#1A1A2E"
