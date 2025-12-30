@@ -28,9 +28,9 @@ export function useHomeNavigation(): UseHomeNavigationReturn {
       case "SETTINGS":
         navigate("/settings");
         break;
-      case "CHAT":
-        // TODO: Implement chat functionality
-        console.log("Chat action pressed");
+      case "ABOUT":
+        navigate("/about");
+
         break;
       default:
         console.warn(`Unknown action: ${action}`);

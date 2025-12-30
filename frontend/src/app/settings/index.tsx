@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native-unistyles";
 import { SafeContent } from "@/components/ui/atoms/SafeContent";
 import PageTitle from "@/components/ui/molecules/PageTitle";
 import SettingButton from "@/features/settings/components/SettingButton";
-import BackButton from "@/components/ui/molecules/BackButton";
+import BackButton from "@/components/ui/molecules/Buttons/BackButton";
 import { useSettingsStore } from "@/features/settings/SettingsSlice";
 
 /**

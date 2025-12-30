@@ -1,14 +1,15 @@
+import { AppLanguage } from "@/types";
 import { create } from "zustand";
 
 interface SettingsState {
   soundEnabled: boolean;
   musicEnabled: boolean;
   hapticEnabled: boolean;
-  language: "en" | "ar" | "fr";
+  language: AppLanguage;
 
   toggleSound: () => void;
   toggleMusic: () => void;
-  setLanguage: (language: "en" | "ar" | "fr") => void;
+  setLanguage: (language: AppLanguage) => void;
   toggleHaptic: () => void;
 }
 

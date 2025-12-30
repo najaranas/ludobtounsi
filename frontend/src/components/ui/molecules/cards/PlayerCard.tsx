@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
-import { colors, radius, spacing } from "../../../constants/theme";
-import { Text } from "../atoms/Text";
+import { View } from "react-native";
+import { Text } from "../../atoms/Text";
+import { StyleSheet } from "react-native-unistyles";
 
 interface PlayerCardProps {
   name: string;
@@ -9,10 +9,6 @@ interface PlayerCardProps {
   score?: number;
 }
 
-/**
- * PlayerCard - Displays player info during game
- * Shows name, color indicator, and current score
- */
 export function PlayerCard({
   name,
   color,
@@ -35,16 +31,16 @@ export function PlayerCard({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    padding: spacing.md,
-    backgroundColor: colors.background.medium,
-    borderRadius: radius.md,
+    padding: theme.spacing.md,
+    backgroundColor: theme.colors.background.medium,
+    borderRadius: theme.radius.md,
     borderWidth: 2,
     borderColor: "transparent",
-    gap: spacing.sm,
+    gap: theme.spacing.sm,
   },
   active: {
     borderWidth: 2,
@@ -52,6 +48,6 @@ const styles = StyleSheet.create({
   colorIndicator: {
     width: 16,
     height: 16,
-    borderRadius: radius.full,
+    borderRadius: theme.radius.full,
   },
-});
+}));

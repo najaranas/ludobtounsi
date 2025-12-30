@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../atoms";
+import { Button } from "../../atoms";
 import { Image } from "expo-image";
 import useNavigation from "@/hooks/useNavigation";
 import { StyleSheet } from "react-native-unistyles";

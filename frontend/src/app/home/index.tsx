@@ -23,7 +23,7 @@ export default function HomeScreen() {
           <ActionIconButton
             iconSource={HomeAssets.icons.chat}
             backgroundSource={HomeAssets.backgrounds.brownSquare}
-            onPress={() => handleQuickAction("CHAT")}
+            onPress={() => handleQuickAction("ABOUT")}
           />
         </View>
 

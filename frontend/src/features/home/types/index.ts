@@ -1,1 +1,1 @@
-export type HomeAction = "SETTINGS" | "CHAT";
+export type HomeAction = "SETTINGS" | "ABOUT";

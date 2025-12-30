@@ -2,8 +2,8 @@ import React from "react";
 import { View, PressableProps } from "react-native";
 import { ImageBackground, ImageSource } from "expo-image";
 import { StyleSheet } from "react-native-unistyles";
-import { IconImage } from "../atoms/IconImage";
-import { Button } from "../atoms";
+import { IconImage } from "../../atoms/IconImage";
+import { Button } from "../../atoms";
 
 export interface ActionIconButtonProps extends PressableProps {
   iconSource: ImageSource;

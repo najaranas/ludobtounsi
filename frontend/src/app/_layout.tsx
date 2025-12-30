@@ -42,7 +42,8 @@ export default function RootLayout() {
       <Stack.Screen
         name="about/index"
         options={{
-          animation: "slide_from_bottom",
+          presentation: "transparentModal",
+          animation: "fade",
         }}
       />
     </Stack>

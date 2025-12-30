@@ -3,9 +3,9 @@ import { PressableProps, View } from "react-native";
 import { ImageBackground, ImageSource } from "expo-image";
 import { StyleSheet } from "react-native-unistyles";
 
-import { Text } from "../atoms/Text";
-import { IconImage } from "../atoms/IconImage";
-import { Button } from "../atoms";
+import { Text } from "../../atoms/Text";
+import { IconImage } from "../../atoms/IconImage";
+import { Button } from "../../atoms";
 
 export interface GameModeCardProps extends Omit<PressableProps, "children"> {
   title: string;

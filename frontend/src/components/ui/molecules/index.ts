@@ -1,5 +1,5 @@
-export { PlayerCard } from "./PlayerCard";
-export { ActionIconButton } from "./ActionIconButton";
-export type { ActionIconButtonProps } from "./ActionIconButton";
-export { GameModeCard } from "./GameModeCard";
-export type { GameModeCardProps } from "./GameModeCard";
+export { PlayerCard } from "./cards/PlayerCard";
+export { ActionIconButton } from "./Buttons/ActionIconButton";
+export type { ActionIconButtonProps } from "./Buttons/ActionIconButton";
+export { GameModeCard } from "./cards/GameModeCard";
+export type { GameModeCardProps } from "./cards/GameModeCard";
