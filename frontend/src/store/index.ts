@@ -1,33 +1,6 @@
 import { create } from "zustand";
 
 // ============================================
-// SETTINGS STORE
-// ============================================
-interface SettingsState {
-  soundEnabled: boolean;
-  musicEnabled: boolean;
-  language: "en" | "ar" | "fr";
-  hapticEnabled: boolean;
-  // Actions
-  toggleSound: () => void;
-  toggleMusic: () => void;
-  setLanguage: (language: "en" | "ar" | "fr") => void;
-  toggleHaptic: () => void;
-}
-
-export const useSettingsStore = create<SettingsState>()((set) => ({
-  soundEnabled: true,
-  musicEnabled: true,
-  language: "en",
-  hapticEnabled: true,
-  // Actions
-  toggleSound: () => set((state) => ({ soundEnabled: !state.soundEnabled })),
-  toggleMusic: () => set((state) => ({ musicEnabled: !state.musicEnabled })),
-  setLanguage: (language) => set({ language }),
-  toggleHaptic: () => set((state) => ({ hapticEnabled: !state.hapticEnabled })),
-}));
-
-// ============================================
 // GAME SETUP STORE
 // ============================================
 export interface PlayerConfig {

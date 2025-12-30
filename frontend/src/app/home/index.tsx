@@ -2,15 +2,11 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { ScreenContainer } from "@/components/ui/templates/ScreenContainer";
 import { SafeContent } from "@/components/ui/atoms/SafeContent";
-import {
-  HomeAssets,
-  HomeLogo,
-  QuickActionsToolbar,
-  GameModeSelection,
-  useHomeNavigation,
-  GAME_MODE_CONFIGS,
-  QUICK_ACTION_CONFIGS,
-} from "@/features/home";
+import { ActionIconButton, GameModeCard } from "@/components/ui";
+import { HomeAssets } from "@/features/home/assets";
+import { useHomeNavigation } from "@/features/home/hooks";
+import { Image } from "expo-image";
+import { scale } from "react-native-size-matters";
 
 export default function HomeScreen() {
   const { navigateToGameMode, handleQuickAction } = useHomeNavigation();
@@ -18,17 +14,35 @@ export default function HomeScreen() {
   return (
     <ScreenContainer backgroundSource={HomeAssets.backgrounds.main}>
       <SafeContent style={styles.content}>
-        <QuickActionsToolbar
-          actions={QUICK_ACTION_CONFIGS}
-          onActionPress={handleQuickAction}
-        />
-        <View style={styles.centerSection}>
-          <HomeLogo />
+        <View style={styles.actionsContainer}>
+          <ActionIconButton
+            iconSource={HomeAssets.icons.settings}
+            backgroundSource={HomeAssets.backgrounds.brownSquare}
+            onPress={() => handleQuickAction("SETTINGS")}
+          />
+          <ActionIconButton
+            iconSource={HomeAssets.icons.chat}
+            backgroundSource={HomeAssets.backgrounds.brownSquare}
+            onPress={() => handleQuickAction("CHAT")}
+          />
         </View>
-        <View style={[styles.centerSection, { flex: 1 }]}>
-          <GameModeSelection
-            modes={GAME_MODE_CONFIGS}
-            onModeSelect={navigateToGameMode}
+
+        <Image source={HomeAssets.logos.main} style={styles.logo} />
+
+        <View style={styles.gameModeContainer}>
+          <GameModeCard
+            title="friends"
+            description="2-4 Players"
+            iconSource={HomeAssets.icons.playFriends}
+            backgroundSource={HomeAssets.backgrounds.blueSquare}
+            onPress={() => navigateToGameMode("FRIENDS")}
+          />
+          <GameModeCard
+            title="ai"
+            description="vs Computer"
+            iconSource={HomeAssets.icons.vsAi}
+            backgroundSource={HomeAssets.backgrounds.greenSquare}
+            onPress={() => navigateToGameMode("AI")}
           />
         </View>
       </SafeContent>
@@ -40,8 +54,23 @@ const styles = StyleSheet.create((theme) => ({
   content: {
     padding: theme.spacing.md,
   },
+  logo: {
+    width: scale(200),
+    aspectRatio: 1,
+    alignSelf: "center",
+  },
+  actionsContainer: {
+    gap: theme.spacing.md,
+  },
   centerSection: {
     justifyContent: "center",
     alignItems: "center",
+  },
+  gameModeContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: theme.spacing.lg,
+    flex: 1,
   },
 }));

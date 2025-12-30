@@ -35,22 +35,22 @@ const styles = StyleSheet.create({
   },
   h1: {
     fontSize: typography.fontSize.xxxl,
-    fontWeight: typography.fontWeight.bold,
+    fontFamily: typography.fontFamily.extraBold,
   },
   h2: {
     fontSize: typography.fontSize.xxl,
-    fontWeight: typography.fontWeight.semibold,
+    fontFamily: typography.fontFamily.semiBold,
   },
   h3: {
     fontSize: typography.fontSize.xl,
-    fontWeight: typography.fontWeight.medium,
+    fontFamily: typography.fontFamily.medium,
   },
   body: {
     fontSize: typography.fontSize.md,
-    fontWeight: typography.fontWeight.regular,
+    fontFamily: typography.fontFamily.regular,
   },
   caption: {
     fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.regular,
+    fontFamily: typography.fontFamily.regular,
   },
 });
