@@ -2,6 +2,8 @@ import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
 import { useEffect } from "react";
 import { useSoundsSetup } from "./sound";
+import { useSettingsStore } from "@/features/settings";
+import { HapticService } from "@/services/haptic";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -13,8 +15,13 @@ export default function useAppBootstrap() {
     "Baloo2-Bold": require("../assets/fonts/Baloo2-Bold.ttf"),
     "Baloo2-ExtraBold": require("../assets/fonts/Baloo2-ExtraBold.ttf"),
   });
+  const hapticEnabled = useSettingsStore((s) => s.isHapticEnabled);
 
   useSoundsSetup();
+
+  useEffect(() => {
+    HapticService.setEnabled(hapticEnabled);
+  }, [hapticEnabled]);
 
   useEffect(() => {
     // Hide splash screen once fonts are loaded

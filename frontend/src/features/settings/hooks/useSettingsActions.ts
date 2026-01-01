@@ -10,14 +10,12 @@ export default function useSettingsActions() {
 
   const toggleSoundAction = () => {
     toggleSound();
-    HapticService.buttonPress();
-    SoundService.play("buttonPress");
+    SoundService.play("ButtonClick");
   };
 
   const toggleVibrationAction = () => {
     toggleHaptic();
     HapticService.buttonPress();
-    SoundService.play("buttonPress");
   };
 
   return {

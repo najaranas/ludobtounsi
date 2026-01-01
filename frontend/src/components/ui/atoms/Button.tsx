@@ -1,6 +1,7 @@
 import useButtonAnimation from "@/hooks/button/useButtonAnimation";
+import { SoundService } from "@/services/sound";
 import React from "react";
-import { Pressable, PressableProps } from "react-native";
+import { GestureResponderEvent, Pressable, PressableProps } from "react-native";
 import { createAnimatedComponent } from "react-native-reanimated";
 interface ButtonProps extends PressableProps {
   children: React.ReactNode;
@@ -13,14 +14,21 @@ export const Button = ({
   children,
   scale = 0.9,
   style,
+  onPress,
   ...props
 }: ButtonProps) => {
   const { animatedStyle, handlePressIn, handlePressOut } =
     useButtonAnimation(scale);
+
+  const onPressHandler = (event: GestureResponderEvent) => {
+    SoundService.play("ButtonClick");
+    onPress?.(event);
+  };
   return (
     <AnimatedPressable
       {...props}
       style={[style, animatedStyle]}
+      onPress={onPressHandler}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}>
       {children}

@@ -1,36 +1,40 @@
 import { AppLanguage } from "@/types";
 import { create } from "zustand";
+import {persist , createJSONStorage } from "zustand/middleware";
 
 import { HapticService } from "@/services/haptic";
 import { SoundService } from "@/services/sound";
+import {  mmkvStorage } from "@/services/storage";
 
 interface SettingsState {
   isSoundEnabled: boolean;
-  isMusicEnabled: boolean;
   isHapticEnabled: boolean;
   language: AppLanguage;
 
   toggleSound: () => void;
-  toggleMusic: () => void;
   setLanguage: (language: AppLanguage) => void;
   toggleHaptic: () => void;
 }
+export const useSettingsStore = create<SettingsState>()(
+  persist(
+    (set) => ({
+      isSoundEnabled: true,
+      isHapticEnabled: true,
+      language: "en",
 
-export const useSettingsStore = create<SettingsState>()((set) => ({
-  isSoundEnabled: true,
-  isMusicEnabled: true,
-  isHapticEnabled: true,
-  language: "en",
-
-  toggleSound: () =>
-    set((state) => ({ isSoundEnabled: !state.isSoundEnabled })),
-  toggleMusic: () =>
-    set((state) => ({ isMusicEnabled: !state.isMusicEnabled })),
-  setLanguage: (language) => set({ language }),
-  toggleHaptic: () => {
-    set((state) => ({ isHapticEnabled: !state.isHapticEnabled }));
-  },
-}));
+      toggleSound: () =>
+        set((state) => ({ isSoundEnabled: !state.isSoundEnabled })),
+      toggleHaptic: () => {
+        set((state) => ({ isHapticEnabled: !state.isHapticEnabled }));
+      },
+      setLanguage: (language) => set({ language }),
+    }),
+    {
+      name: "settings",
+      storage: createJSONStorage(() => mmkvStorage),
+    }
+  )
+);
 
 useSettingsStore.subscribe((state, prevState) => {
   if (state.isHapticEnabled !== prevState.isHapticEnabled) {

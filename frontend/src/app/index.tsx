@@ -4,9 +4,6 @@ import { StyleSheet } from "react-native-unistyles";
 import { useAppStartupNavigation } from "@/features/appStartup/hooks";
 import { AppStartupAssets } from "@/features/appStartup/assets";
 
-/**
- * LoadingScreen - Entry point of the app
- */
 export default function LoadingScreen() {
   useAppStartupNavigation();
 
