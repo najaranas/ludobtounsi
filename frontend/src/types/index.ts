@@ -1,2 +1,2 @@
-export type GameMode = "FRIENDS" | "AI";
-export type AppLanguage = "en" | "ar" | "fr" | "tn";
+export { AppLanguage, GameMode } from "./app.type";
+export { Sound } from "./sound.type";

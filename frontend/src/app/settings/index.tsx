@@ -5,17 +5,15 @@ import { SafeContent } from "@/components/ui/atoms/SafeContent";
 import PageTitle from "@/components/ui/molecules/PageTitle";
 import SettingButton from "@/features/settings/components/SettingButton";
 import BackButton from "@/components/ui/molecules/Buttons/BackButton";
-import { useSettingsStore } from "@/features/settings/SettingsSlice";
+import { useSettingsActions } from "@/features/settings/hooks";
 
 /**
  * SettingsScreen - App configuration
  * Sound, Haptic
  */
-
 export default function SettingsScreen() {
-  const { soundEnabled, hapticEnabled, toggleSound, toggleHaptic } =
-    useSettingsStore();
-
+  const { onToggleSound, onToggleVibration, isSoundEnabled, isHapticEnabled } =
+    useSettingsActions();
   return (
     <SafeContent style={styles.safeContainer}>
       <View style={styles.container}>
@@ -24,13 +22,13 @@ export default function SettingsScreen() {
           <View style={styles.settingsList}>
             <SettingButton
               label="Sound"
-              value={soundEnabled}
-              onToggle={toggleSound}
+              value={isSoundEnabled}
+              onToggle={onToggleSound}
             />
             <SettingButton
               label="Vibration"
-              value={hapticEnabled}
-              onToggle={toggleHaptic}
+              value={isHapticEnabled}
+              onToggle={onToggleVibration}
             />
           </View>
           <BackButton />

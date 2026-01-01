@@ -1,6 +1,7 @@
 import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
 import { useEffect } from "react";
+import { useSoundsSetup } from "./sound";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -13,14 +14,14 @@ export default function useAppBootstrap() {
     "Baloo2-ExtraBold": require("../assets/fonts/Baloo2-ExtraBold.ttf"),
   });
 
+  useSoundsSetup();
+
   useEffect(() => {
     // Hide splash screen once fonts are loaded
     if (fontsLoaded || fontError) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded, fontError]);
-
-  // Don't render until fonts are loaded
 
   return {
     appReady: fontsLoaded || !!fontError,

@@ -1,10 +1,13 @@
 import { AppLanguage } from "@/types";
 import { create } from "zustand";
 
+import { HapticService } from "@/services/haptic";
+import { SoundService } from "@/services/sound";
+
 interface SettingsState {
-  soundEnabled: boolean;
-  musicEnabled: boolean;
-  hapticEnabled: boolean;
+  isSoundEnabled: boolean;
+  isMusicEnabled: boolean;
+  isHapticEnabled: boolean;
   language: AppLanguage;
 
   toggleSound: () => void;
@@ -14,13 +17,27 @@ interface SettingsState {
 }
 
 export const useSettingsStore = create<SettingsState>()((set) => ({
-  soundEnabled: true,
-  musicEnabled: true,
-  hapticEnabled: true,
+  isSoundEnabled: true,
+  isMusicEnabled: true,
+  isHapticEnabled: true,
   language: "en",
 
-  toggleSound: () => set((state) => ({ soundEnabled: !state.soundEnabled })),
-  toggleMusic: () => set((state) => ({ musicEnabled: !state.musicEnabled })),
+  toggleSound: () =>
+    set((state) => ({ isSoundEnabled: !state.isSoundEnabled })),
+  toggleMusic: () =>
+    set((state) => ({ isMusicEnabled: !state.isMusicEnabled })),
   setLanguage: (language) => set({ language }),
-  toggleHaptic: () => set((state) => ({ hapticEnabled: !state.hapticEnabled })),
+  toggleHaptic: () => {
+    set((state) => ({ isHapticEnabled: !state.isHapticEnabled }));
+  },
 }));
+
+useSettingsStore.subscribe((state, prevState) => {
+  if (state.isHapticEnabled !== prevState.isHapticEnabled) {
+    HapticService.setEnabled(state.isHapticEnabled);
+  }
+
+  if (state.isSoundEnabled !== prevState.isSoundEnabled) {
+    SoundService.setEnabled(state.isSoundEnabled);
+  }
+});

@@ -31,7 +31,7 @@ export function Text({
 
 const styles = StyleSheet.create({
   base: {
-    fontFamily: typography.fontFamily.regular,
+    fontFamily: typography.fontFamily.medium,
   },
   h1: {
     fontSize: typography.fontSize.xxxl,

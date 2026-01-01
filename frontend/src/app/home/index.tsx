@@ -2,11 +2,13 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { ScreenContainer } from "@/components/ui/templates/ScreenContainer";
 import { SafeContent } from "@/components/ui/atoms/SafeContent";
-import { ActionIconButton, GameModeCard } from "@/components/ui";
-import { HomeAssets } from "@/features/home/assets";
-import { useHomeNavigation } from "@/features/home/hooks";
+import { ActionIconButton, Button, GameModeCard, Text } from "@/components/ui";
+import { HomeAssets } from "@/constants/assets";
+import { useHomeNavigation } from "@/hooks/useHomeNavigation";
 import { Image } from "expo-image";
 import { scale } from "react-native-size-matters";
+import { HapticService } from "@/services/haptic";
+import { SoundService } from "@/services/sound";
 
 export default function HomeScreen() {
   const { navigateToGameMode, handleQuickAction } = useHomeNavigation();
@@ -45,6 +47,13 @@ export default function HomeScreen() {
             onPress={() => navigateToGameMode("AI")}
           />
         </View>
+        <Button
+          onPress={() => {
+            HapticService.buttonPress();
+            SoundService.play("ButtonClick");
+          }}>
+          <Text style={{ color: "white", backgroundColor: "red" }}>aze</Text>
+        </Button>
       </SafeContent>
     </ScreenContainer>
   );
