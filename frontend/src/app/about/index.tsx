@@ -43,6 +43,10 @@ export default function AboutScreen() {
               url={APP_CREDITS.developerSocialsMedia.linkedin}
             />
             <SocialButton
+              icon="logo-github"
+              url={APP_CREDITS.developerSocialsMedia.github}
+            />
+            <SocialButton
               icon="logo-x"
               url={APP_CREDITS.developerSocialsMedia.twitter}
             />

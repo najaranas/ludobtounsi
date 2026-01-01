@@ -8,7 +8,8 @@ export const APP_CREDITS = {
   stack: ["React Native", "Expo", "TypeScript"],
   developerSocialsMedia: {
     linkedin: "https://www.linkedin.com/in/anasnajar",
-    mail: "anasnajar.tn@gmail.com",
     twitter: "https://x.com/anasnajar_dev",
+    github: "https://github.com/najaranas",
+    mail: "anasnajar.tn@gmail.com",
   },
 };
