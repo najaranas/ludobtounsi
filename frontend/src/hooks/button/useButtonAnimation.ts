@@ -4,7 +4,7 @@ import {
   withTiming,
 } from "react-native-reanimated";
 
-export default function useButton(scale: number = 0.9) {
+export default function useButtonAnimation(scale: number = 0.9) {
   const animatedopacity = useSharedValue(1);
   const animatedScale = useSharedValue(1);
 

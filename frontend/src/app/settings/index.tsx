@@ -9,7 +9,7 @@ import { useSettingsStore } from "@/features/settings/SettingsSlice";
 
 /**
  * SettingsScreen - App configuration
- * Sound, Language, Theme preferences
+ * Sound, Haptic
  */
 
 export default function SettingsScreen() {

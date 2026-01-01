@@ -4,11 +4,17 @@ import PageTitle from "@/components/ui/molecules/PageTitle";
 import { View, Text } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import SocialButton from "@/components/ui/molecules/Buttons/SocialButton";
-import { APP_CREDITS, APP_NAME, APP_VERSION } from "@/constants/about";
+import {
+  APP_CREDITS,
+  APP_DESCRIPTION,
+  APP_NAME,
+  APP_VERSION,
+} from "@/constants/about";
 
 /**
  * AboutScreen - Simple & clean
  */
+
 export default function AboutScreen() {
   return (
     <SafeContent style={styles.safeContainer}>
@@ -21,18 +27,14 @@ export default function AboutScreen() {
           <Text style={styles.meta}>{`Version ${APP_VERSION}`}</Text>
 
           {/* Description */}
-          <Text style={styles.description}>
-            LUDO Btounsi is a modern version of the classic Ludo game, inspired
-            by Tunisian culture. Designed to bring friends and families together
-            with a familiar and local touch.
-          </Text>
+          <Text style={styles.description}>{APP_DESCRIPTION}</Text>
 
           {/* Divider */}
           <View style={styles.divider} />
 
           {/* Developer */}
-          <Text style={styles.devName}>Anas Najar</Text>
-          <Text style={styles.devRole}>React Native Developer</Text>
+          <Text style={styles.devName}>{APP_CREDITS.developer}</Text>
+          <Text style={styles.devRole}>{APP_CREDITS.role}</Text>
 
           {/* Social Links */}
           <View style={styles.socials}>
@@ -52,7 +54,7 @@ export default function AboutScreen() {
 
           {/* Footer */}
           <Text style={styles.footer}>
-            © 2025 LUDO Btounsi. All rights reserved.
+            &copy; {new Date().getFullYear()} {APP_NAME}. All rights reserved.
           </Text>
 
           <BackButton />

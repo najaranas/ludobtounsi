@@ -1,4 +1,4 @@
-import useButton from "@/hooks/button/useButton";
+import useButtonAnimation from "@/hooks/button/useButtonAnimation";
 import React from "react";
 import { Pressable, PressableProps } from "react-native";
 import { createAnimatedComponent } from "react-native-reanimated";
@@ -15,7 +15,8 @@ export const Button = ({
   style,
   ...props
 }: ButtonProps) => {
-  const { animatedStyle, handlePressIn, handlePressOut } = useButton(scale);
+  const { animatedStyle, handlePressIn, handlePressOut } =
+    useButtonAnimation(scale);
   return (
     <AnimatedPressable
       {...props}
