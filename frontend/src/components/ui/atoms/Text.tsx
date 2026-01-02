@@ -1,9 +1,9 @@
 import { Text as RNText, StyleSheet, TextProps } from "react-native";
-import { colors, typography } from "../../../constants/theme";
+import { COLORS, TYPOGRAPHY } from "../../../constants/theme";
 
 interface AppTextProps extends TextProps {
   variant?: "h1" | "h2" | "h3" | "body" | "caption";
-  color?: keyof typeof colors.text;
+  color?: keyof typeof COLORS.text;
 }
 
 /**
@@ -21,7 +21,7 @@ export function Text({
       style={[
         styles.base,
         styles[variant],
-        { color: colors.text[color] },
+        { color: COLORS.text[color] },
         style,
       ]}
       {...props}
@@ -31,26 +31,26 @@ export function Text({
 
 const styles = StyleSheet.create({
   base: {
-    fontFamily: typography.fontFamily.medium,
+    fontFamily: TYPOGRAPHY.fontFamily.medium,
   },
   h1: {
-    fontSize: typography.fontSize.xxxl,
-    fontFamily: typography.fontFamily.extraBold,
+    fontSize: TYPOGRAPHY.fontSize.xxxl,
+    fontFamily: TYPOGRAPHY.fontFamily.extraBold,
   },
   h2: {
-    fontSize: typography.fontSize.xxl,
-    fontFamily: typography.fontFamily.semiBold,
+    fontSize: TYPOGRAPHY.fontSize.xxl,
+    fontFamily: TYPOGRAPHY.fontFamily.semiBold,
   },
   h3: {
-    fontSize: typography.fontSize.xl,
-    fontFamily: typography.fontFamily.medium,
+    fontSize: TYPOGRAPHY.fontSize.xl,
+    fontFamily: TYPOGRAPHY.fontFamily.medium,
   },
   body: {
-    fontSize: typography.fontSize.md,
-    fontFamily: typography.fontFamily.regular,
+    fontSize: TYPOGRAPHY.fontSize.md,
+    fontFamily: TYPOGRAPHY.fontFamily.regular,
   },
   caption: {
-    fontSize: typography.fontSize.sm,
-    fontFamily: typography.fontFamily.regular,
+    fontSize: TYPOGRAPHY.fontSize.sm,
+    fontFamily: TYPOGRAPHY.fontFamily.regular,
   },
 });

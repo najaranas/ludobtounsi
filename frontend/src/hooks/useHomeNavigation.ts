@@ -14,10 +14,10 @@ export function useHomeNavigation(): UseHomeNavigationReturn {
   const navigateToGameMode = (mode: GameMode) => {
     switch (mode) {
       case "FRIENDS":
-        navigate("/(game-setup)/player-setup");
+        navigate("/(game-setup)/select-player-count");
         break;
       case "AI":
-        navigate("/(game-setup)/player-setup");
+        navigate("/(game-setup)/select-player-count");
         break;
       default:
         console.warn(`Unknown game mode: ${mode}`);

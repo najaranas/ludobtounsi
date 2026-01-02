@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { colors, radius, spacing } from "../../../constants/theme";
+import { COLORS, RADIUS, SPACING } from "../../../constants/theme";
 
 interface ColorPickerProps {
   selectedColor: string;
@@ -36,16 +36,16 @@ export function ColorPicker({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    gap: spacing.sm,
+    gap: SPACING.sm,
     flexWrap: "wrap",
   },
   colorOption: {
     width: 40,
     height: 40,
-    borderRadius: radius.full,
+    borderRadius: RADIUS.full,
   },
   selected: {
     borderWidth: 3,
-    borderColor: colors.text.primary,
+    borderColor: COLORS.text.primary,
   },
 });

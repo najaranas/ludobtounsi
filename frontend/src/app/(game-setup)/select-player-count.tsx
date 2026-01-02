@@ -1,27 +1,64 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+
+import { SafeContent } from "@/components/ui";
+import { ContentCard } from "@/components/ui/organisms";
+import BackButton from "@/components/ui/molecules/Buttons/BackButton";
+import PageTitle from "@/components/ui/molecules/PageTitle";
+import { PlayerCountButton } from "@/features/game-setup/components";
+import useNavigation from "@/hooks/useNavigation";
 
 /**
- * SelectPlayerCountScreen - Choose number of players
- * Options: 2, 3, or 4 players
+ * PlayerSetupScreen - Player count selection
+ *
+ * @description Allows users to select the number of players (2, 3, or 4)
+ * for the game session.
  */
-export default function SelectPlayerCountScreen() {
+export default function PlayerSetupScreen() {
+  const handlePlayerCountSelect = (count: number) => {
+    // TODO: Navigate to next setup step with player count
+    console.log(`Selected ${count} players`);
+  };
+
+  const { navigate } = useNavigation();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Select Players</Text>
-      {/* TODO: Add player count selection */}
-    </View>
+    <SafeContent>
+      <View style={styles.container}>
+        <ContentCard>
+          <PageTitle title="Select Players" />
+
+          <View style={styles.buttonContainer}>
+            <PlayerCountButton
+              count={2}
+              onPress={() => navigate("/(game-setup)/player-setup")}
+            />
+            <PlayerCountButton
+              count={3}
+              onPress={() => handlePlayerCountSelect(3)}
+            />
+            <PlayerCountButton
+              count={4}
+              onPress={() => handlePlayerCountSelect(4)}
+            />
+          </View>
+
+          <BackButton />
+        </ContentCard>
+      </View>
+    </SafeContent>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((theme) => ({
   container: {
     flex: 1,
-    justifyContent: "center",
+    padding: theme.spacing.md,
     alignItems: "center",
-    backgroundColor: "#1A1A2E",
+    justifyContent: "center",
   },
-  title: {
-    fontSize: 24,
-    color: "#FFFFFF",
+  buttonContainer: {
+    gap: theme.spacing.md,
+    alignItems: "center",
   },
-});
+}));

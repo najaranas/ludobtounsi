@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { colors, spacing } from "../../../constants/theme";
+import { COLORS, SPACING } from "../../../constants/theme";
 import { Text } from "../atoms/Text";
 
 /**
@@ -20,8 +20,8 @@ export function GameBoard() {
 const styles = StyleSheet.create({
   container: {
     aspectRatio: 1,
-    backgroundColor: colors.background.medium,
-    padding: spacing.md,
+    backgroundColor: COLORS.background.medium,
+    padding: SPACING.md,
     justifyContent: "center",
     alignItems: "center",
   },

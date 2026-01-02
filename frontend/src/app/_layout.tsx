@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import useAppBootstrap from "@/hooks/useAppBootstrap";
+import { COLORS } from "@/constants/theme";
 
 export default function RootLayout() {
   const { appReady } = useAppBootstrap();
@@ -26,17 +27,11 @@ export default function RootLayout() {
       />
 
       <Stack.Screen
-        name="(game-setup)/select-player-count"
+        name="(game-setup)"
         options={{
           presentation: "transparentModal",
           animation: "fade",
-        }}
-      />
-      <Stack.Screen
-        name="(game-setup)/player-setup"
-        options={{
-          presentation: "transparentModal",
-          animation: "fade",
+          contentStyle: { backgroundColor: COLORS.ui.overlay },
         }}
       />
     </Stack>

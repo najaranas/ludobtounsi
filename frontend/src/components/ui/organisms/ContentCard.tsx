@@ -1,10 +1,9 @@
 import React from "react";
-import { View, ViewStyle } from "react-native";
+import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 
-export interface ContentCardProps {
+export interface ContentCardProps extends React.ComponentProps<typeof View> {
   children: React.ReactNode;
-  style?: ViewStyle;
 }
 
 /**
@@ -13,15 +12,13 @@ export interface ContentCardProps {
  * @description Organism component providing a consistent card layout
  * with border, background, and spacing. Used across settings, game setup,
  * and other screens for visual consistency.
- *
- * @example
- * <ContentCard>
- *   <PageTitle title="Settings" />
- *   <SettingsList />
- * </ContentCard>
  */
-export function ContentCard({ children, style }: ContentCardProps) {
-  return <View style={[styles.card, style]}>{children}</View>;
+export function ContentCard({ children, style, ...rest }: ContentCardProps) {
+  return (
+    <View style={[styles.card, style]} {...rest}>
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create((theme) => ({
@@ -30,7 +27,7 @@ const styles = StyleSheet.create((theme) => ({
     borderColor: theme.colors.ui.border,
     borderWidth: 1,
     minWidth: "100%",
-    padding: theme.spacing.md,
+    padding: theme.spacing.sm,
     backgroundColor: theme.colors.background.accent,
     gap: theme.spacing.md,
     alignItems: "center",
