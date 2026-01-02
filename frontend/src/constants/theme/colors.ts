@@ -27,6 +27,8 @@ export const colors = {
     warning: "#FFD166",
     error: "#EF476F",
     disabled: "#6C757D",
+    border: "#EEA12D",
+    overlay: "rgba(0, 0, 0, 0.8)",
   },
 
   // Text colors

@@ -24,6 +24,21 @@ export default function RootLayout() {
           animation: "fade",
         }}
       />
+
+      <Stack.Screen
+        name="(game-setup)/select-player-count"
+        options={{
+          presentation: "transparentModal",
+          animation: "fade",
+        }}
+      />
+      <Stack.Screen
+        name="(game-setup)/player-setup"
+        options={{
+          presentation: "transparentModal",
+          animation: "fade",
+        }}
+      />
     </Stack>
   );
 }
