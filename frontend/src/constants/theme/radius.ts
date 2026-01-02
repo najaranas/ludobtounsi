@@ -1,7 +1,7 @@
 import { scale } from "react-native-size-matters";
 
 // Border radius scale with responsive sizing
-export const radius = {
+export const RADIUS = {
   none: 0,
   sm: scale(4),
   md: scale(8),
@@ -11,4 +11,4 @@ export const radius = {
   full: 9999,
 } as const;
 
-export type Radius = typeof radius;
+export type Radius = typeof RADIUS;

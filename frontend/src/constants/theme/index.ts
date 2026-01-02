@@ -1,9 +1,9 @@
 // Theme barrel export
-export { border } from "./border";
-export { colors } from "./colors";
-export { radius } from "./radius";
-export { spacing } from "./spacing";
-export { typography } from "./typography";
+export { BORDER } from "./border";
+export { COLORS } from "./colors";
+export { RADIUS } from "./radius";
+export { SPACING } from "./spacing";
+export { TYPOGRAPHY } from "./typography";
 
 // Re-export types
 export type { Border } from "./border";

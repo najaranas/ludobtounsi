@@ -1,5 +1,5 @@
 // Border styles
-export const border = {
+export const BORDER = {
   width: {
     thin: 1,
     medium: 2,
@@ -13,4 +13,4 @@ export const border = {
   },
 } as const;
 
-export type Border = typeof border;
+export type Border = typeof BORDER;

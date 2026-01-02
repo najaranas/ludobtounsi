@@ -1,7 +1,7 @@
 import { RFValue } from "react-native-responsive-fontsize";
 
 // Typography scale with responsive font sizes
-export const typography = {
+export const TYPOGRAPHY = {
   fontFamily: {
     regular: "Baloo2-Regular",
     medium: "Baloo2-Medium",
@@ -35,4 +35,4 @@ export const typography = {
   },
 } as const;
 
-export type Typography = typeof typography;
+export type Typography = typeof TYPOGRAPHY;

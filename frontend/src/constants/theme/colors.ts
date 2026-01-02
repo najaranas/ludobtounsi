@@ -1,5 +1,5 @@
 // Tunisia-inspired color palette
-export const colors = {
+export const COLORS = {
   // Primary colors (Tunisia flag)
   primary: {
     red: "#C8102E",
@@ -39,4 +39,4 @@ export const colors = {
   },
 } as const;
 
-export type Colors = typeof colors;
+export type Colors = typeof COLORS;

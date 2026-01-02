@@ -1,7 +1,7 @@
 import { scale, moderateScale } from "react-native-size-matters";
 
 // Spacing scale with responsive sizing
-export const spacing = {
+export const SPACING = {
   xxs: scale(2),
   xs: scale(4),
   sm: scale(8),
@@ -12,4 +12,4 @@ export const spacing = {
   xxxl: moderateScale(64),
 } as const;
 
-export type Spacing = typeof spacing;
+export type Spacing = typeof SPACING;
