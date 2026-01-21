@@ -1,26 +1,14 @@
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-
 import { SafeContent } from "@/components/ui";
 import { ContentCard } from "@/components/ui/organisms";
 import BackButton from "@/components/ui/molecules/Buttons/BackButton";
 import PageTitle from "@/components/ui/molecules/PageTitle";
 import { PlayerCountButton } from "@/features/game-setup/components";
-import useNavigation from "@/hooks/useNavigation";
+import { usePlayerCountSelection } from "./hooks/useSelectPlayerCountScreen";
 
-/**
- * PlayerSetupScreen - Player count selection
- *
- * @description Allows users to select the number of players (2, 3, or 4)
- * for the game session.
- */
-export default function PlayerSetupScreen() {
-  const handlePlayerCountSelect = (count: number) => {
-    // TODO: Navigate to next setup step with player count
-    console.log(`Selected ${count} players`);
-  };
-
-  const { navigate } = useNavigation();
+export default function SelectPlayerCountScreen() {
+  const { handlePlayerCountSelect } = usePlayerCountSelection();
 
   return (
     <SafeContent>
@@ -31,7 +19,7 @@ export default function PlayerSetupScreen() {
           <View style={styles.buttonContainer}>
             <PlayerCountButton
               count={2}
-              onPress={() => navigate("/(game-setup)/player-setup")}
+              onPress={() => handlePlayerCountSelect(2)}
             />
             <PlayerCountButton
               count={3}
@@ -58,7 +46,7 @@ const styles = StyleSheet.create((theme) => ({
     justifyContent: "center",
   },
   buttonContainer: {
-    gap: theme.spacing.md,
+    gap: theme.spacing.lg,
     alignItems: "center",
   },
 }));

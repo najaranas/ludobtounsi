@@ -29,7 +29,7 @@ const styles = StyleSheet.create((theme) => ({
     minWidth: "100%",
     padding: theme.spacing.sm,
     backgroundColor: theme.colors.background.accent,
-    gap: theme.spacing.md,
+    gap: theme.spacing.xl,
     alignItems: "center",
   },
 }));

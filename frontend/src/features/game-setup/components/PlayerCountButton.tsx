@@ -5,22 +5,30 @@ import { StyleSheet } from "react-native-unistyles";
 import { moderateScale } from "react-native-size-matters";
 
 import { Button, Text } from "@/components/ui";
+import type { playersNumber } from "@/types";
 
 export interface PlayerCountButtonProps {
-  count: 2 | 3 | 4;
+  count: playersNumber;
   onPress?: () => void;
+  isSelected?: boolean;
 }
 
 /**
- * PlayerCountButton - Button to select player count
+ * PlayerCountButton - Atom Component
  *
- * @description Presentational component for selecting the number of players
- * in a game. Uses themed colors and responsive sizing.
+ * @description Presentational button for selecting the number of players.
+ * Uses theme-based colors and responsive sizing.
+ *
+ * @layer Presentation (UI - Atom)
  *
  * @example
- * <PlayerCountButton count={4} onPress={handlePlayerCountSelect} />
+ * <PlayerCountButton count={4} onPress={handleSelect} />
  */
-export function PlayerCountButton({ count, onPress }: PlayerCountButtonProps) {
+export function PlayerCountButton({
+  count,
+  onPress,
+  isSelected = false,
+}: PlayerCountButtonProps) {
   return (
     <Button onPress={onPress}>
       <ImageBackground
@@ -40,11 +48,12 @@ export function PlayerCountButton({ count, onPress }: PlayerCountButtonProps) {
 
 const styles = StyleSheet.create((theme) => ({
   background: {
-    width: moderateScale(212),
-    aspectRatio: 212 / 94,
+    width: moderateScale(220),
+    height: moderateScale(90),
   },
   content: {
-    padding: theme.spacing.sm,
+    paddingVertical: theme.spacing.md,
+    paddingHorizontal: theme.spacing.lg,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

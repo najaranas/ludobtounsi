@@ -1,2 +1,8 @@
-export { AppLanguage, GameMode } from "./app.type";
-export { Sound } from "./sound.type";
+export type {
+  AppLanguage,
+  GameMode,
+  pawnColor,
+  playersNumber,
+  PlayerConfig,
+} from "./app.type";
+export type { Sound } from "./sound.type";

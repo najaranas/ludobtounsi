@@ -1,14 +1,5 @@
+import { PlayerConfig } from "@/types/app.type";
 import { create } from "zustand";
-
-// ============================================
-// GAME SETUP STORE
-// ============================================
-export interface PlayerConfig {
-  id: string;
-  name: string;
-  color: string;
-  isAI: boolean;
-}
 
 interface GameSetupState {
   playerCount: number;
