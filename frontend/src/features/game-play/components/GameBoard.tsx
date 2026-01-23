@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import Dice from "./Dice";
+import Board from "./Board";
 
 export default function GameBoard() {
   return (
@@ -20,12 +21,7 @@ export default function GameBoard() {
         <Dice />
         <Dice />
       </View>
-      <View
-        style={{
-          width: "100%",
-          aspectRatio: 1,
-          backgroundColor: "#333",
-        }}></View>
+      <Board />
       <View
         style={{
           flexDirection: "row",

@@ -21,7 +21,9 @@ export function ScreenContainer({
       source={backgroundSource}
       style={[styles.container, style]}
       contentFit="cover">
-      <View style={[styles.content, { padding: padding }]}>{children}</View>
+      <View style={[styles.content, padding !== undefined && { padding }]}>
+        {children}
+      </View>
     </ImageBackground>
   );
 }

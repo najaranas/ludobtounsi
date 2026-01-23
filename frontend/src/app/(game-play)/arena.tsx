@@ -17,7 +17,6 @@ export default function ArenaScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
   },
   title: {
     fontSize: 24,
