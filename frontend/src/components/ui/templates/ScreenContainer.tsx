@@ -10,18 +10,6 @@ export interface ScreenContainerProps {
   padding?: number;
 }
 
-/**
- * ScreenContainer - Full-screen container with image background
- *
- * @description Template component providing consistent screen structure
- * with background image support. Used as the root container for screens.
- *
- * @example
- * <ScreenContainer backgroundSource={require('@/assets/bg/main.png')}>
- *   <HeaderSection />
- *   <ContentSection />
- * </ScreenContainer>
- */
 export function ScreenContainer({
   backgroundSource,
   children,
@@ -33,9 +21,7 @@ export function ScreenContainer({
       source={backgroundSource}
       style={[styles.container, style]}
       contentFit="cover">
-      <View style={[styles.content, padding !== undefined && { padding }]}>
-        {children}
-      </View>
+      <View style={[styles.content, { padding: padding }]}>{children}</View>
     </ImageBackground>
   );
 }

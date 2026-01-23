@@ -4,7 +4,7 @@ import { moderateScale } from "react-native-size-matters";
 import { StyleSheet } from "react-native-unistyles";
 
 import { Button } from "@/components/ui";
-import { PAWN_COLOR_ASSETS } from "../assets";
+import { PAWN_ASSETS } from "@/constants/assets";
 import { usePlayerColorSelection } from "../hooks/useColorPicker";
 
 /**
@@ -20,7 +20,7 @@ export function PlayerColorPicker() {
 
   return (
     <View style={styles.container}>
-      {PAWN_COLOR_ASSETS.map((pawn) => {
+      {PAWN_ASSETS.map((pawn) => {
         const isSelected = selectedColors.includes(pawn.color);
 
         return (

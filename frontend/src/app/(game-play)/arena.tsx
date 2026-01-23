@@ -1,24 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
+import { SafeContent, ScreenContainer } from "@/components/ui";
+import GameBoard from "@/features/game-play/components/GameBoard";
+import { HomeAssets } from "@/features/home/assets";
+import { StyleSheet, Text } from "react-native";
 
-/**
- * ArenaScreen - Main game board
- * Ludo board, dice, pawns, turn indicator
- */
 export default function ArenaScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Game Arena</Text>
-      {/* TODO: Add game board and controls */}
-    </View>
+    <ScreenContainer backgroundSource={HomeAssets.backgrounds.main} padding={0}>
+      <SafeContent style={styles.container}>
+        <Text style={styles.title}>GAME</Text>
+        <GameBoard />
+      </SafeContent>
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1A1A2E",
+    backgroundColor: "red",
   },
   title: {
     fontSize: 24,
