@@ -2,9 +2,9 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import React from "react";
 import Dice from "./Dice";
-import Board from "./Board";
+import LudoBoard from "./LudoBoard";
 
-export default function GameBoard() {
+export default function GameArena() {
   return (
     <View style={styles.container}>
       <View style={styles.diceRow}>
@@ -12,7 +12,7 @@ export default function GameBoard() {
         <Dice diceValue={3} playerColor="green" />
       </View>
 
-      <Board />
+      <LudoBoard />
 
       <View style={styles.diceRow}>
         <Dice diceValue={2} playerColor="blue" />

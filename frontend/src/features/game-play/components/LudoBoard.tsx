@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
 
-export default function Board() {
+export default function LudoBoard() {
   return <View style={styles.board} />;
 }
 
