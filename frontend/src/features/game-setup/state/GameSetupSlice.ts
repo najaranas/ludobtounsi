@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import type { PlayerConfig, playersNumber } from "@/types";
+import type { PlayerConfig, PlayersCount } from "@/types";
 
 /**
  * GameSetupState - State Management
@@ -12,19 +12,19 @@ import type { PlayerConfig, playersNumber } from "@/types";
  */
 interface GameSetupState {
   // State
-  playerCount: playersNumber;
+  playerCount: PlayersCount;
   players: PlayerConfig[];
   isConfigured: boolean;
 
   // Actions
-  setPlayerCount: (count: playersNumber) => void;
+  setPlayerCount: (count: PlayersCount) => void;
   setPlayers: (players: PlayerConfig[]) => void;
   setConfigured: (configured: boolean) => void;
   resetGameSetup: () => void;
 }
 
 const INITIAL_STATE = {
-  playerCount: 2 as playersNumber,
+  playerCount: 2 as PlayersCount,
   players: [] as PlayerConfig[],
   isConfigured: false,
 };

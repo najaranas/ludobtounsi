@@ -2,8 +2,8 @@ export type GameMode = "FRIENDS" | "AI";
 export type AppLanguage = "en" | "ar" | "fr" | "tn";
 
 // Game Types
-export type pawnColor = "red" | "green" | "blue" | "yellow";
-export type playersNumber = 2 | 3 | 4;
+export type PawnColor = "red" | "green" | "blue" | "yellow";
+export type PlayersCount = 2 | 3 | 4;
 
 /**
  * PlayerConfig - Domain Entity
@@ -13,6 +13,6 @@ export type playersNumber = 2 | 3 | 4;
 export interface PlayerConfig {
   id: string;
   name: string;
-  color: pawnColor;
+  color: PawnColor;
   isAI: boolean;
 }

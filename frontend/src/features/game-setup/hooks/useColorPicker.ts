@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 
 import useNavigation from "@/hooks/useNavigation";
-import type { pawnColor } from "@/types";
+import type { PawnColor } from "@/types";
 import { useGameSetupStore } from "../state/GameSetupSlice";
 
 /**
@@ -16,10 +16,10 @@ export function usePlayerColorSelection() {
   const { navigate } = useNavigation();
   const { playerCount } = useGameSetupStore();
 
-  const [selectedColors, setSelectedColors] = useState<pawnColor[]>([]);
+  const [selectedColors, setSelectedColors] = useState<PawnColor[]>([]);
 
   const handleColorSelect = useCallback(
-    (color: pawnColor) => {
+    (color: PawnColor) => {
       setSelectedColors((prevColors) => {
         // Toggle color selection
         if (prevColors.includes(color)) {

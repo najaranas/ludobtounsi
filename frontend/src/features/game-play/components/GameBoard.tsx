@@ -1,37 +1,37 @@
 import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 import React from "react";
 import Dice from "./Dice";
 import Board from "./Board";
 
 export default function GameBoard() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        gap: 20,
-      }}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingHorizontal: 20,
-        }}>
-        <Dice />
-        <Dice />
+    <View style={styles.container}>
+      <View style={styles.diceRow}>
+        <Dice diceValue={2} playerColor="red" />
+        <Dice diceValue={3} playerColor="green" />
       </View>
+
       <Board />
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingHorizontal: 20,
-        }}>
-        <Dice />
-        <Dice />
+
+      <View style={styles.diceRow}>
+        <Dice diceValue={2} playerColor="blue" />
+        <Dice diceValue={3} playerColor="yellow" />
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    gap: theme.spacing.lg,
+  },
+  diceRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: theme.spacing.lg,
+  },
+}));

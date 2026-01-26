@@ -1,8 +1,8 @@
 export type {
   AppLanguage,
   GameMode,
-  pawnColor,
-  playersNumber,
+  PawnColor,
+  PlayersCount,
   PlayerConfig,
 } from "./app.type";
 export type { Sound } from "./sound.type";

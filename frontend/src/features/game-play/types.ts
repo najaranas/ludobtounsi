@@ -1,10 +1,12 @@
 // Game Play Types
 // Pawn and Player types are exported from state/index.ts
 
-export interface Position {
+export interface BoardPosition {
   x: number;
   y: number;
 }
+
+export type TurnPhase = "roll" | "move" | "wait";
 
 export interface GameState {
   players: import("../../store").Player[];
@@ -12,5 +14,5 @@ export interface GameState {
   diceValue: number | null;
   isRolling: boolean;
   winner: string | null;
-  turnPhase: "roll" | "move" | "wait";
+  turnPhase: TurnPhase;
 }

@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { useGameSetupStore } from "@/features/game-setup/state/GameSetupSlice";
 import useNavigation from "@/hooks/useNavigation";
-import type { playersNumber } from "@/types";
+import type { PlayersCount } from "@/types";
 
 /**
  * usePlayerCountSelection - Screen Hook
@@ -16,7 +16,7 @@ export function usePlayerCountSelection() {
   const { setPlayerCount } = useGameSetupStore();
 
   const handlePlayerCountSelect = useCallback(
-    (count: playersNumber) => {
+    (count: PlayersCount) => {
       setPlayerCount(count);
       navigate("/(game-setup)/player-setup");
     },
